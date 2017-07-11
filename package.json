@@ -1,0 +1,31 @@
+{
+  "name": "fishinglovers",
+  "version": "1.0.0",
+  "description": "Standard web application",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp server"
+  },
+  "author": "Express-18",
+  "license": "ISC",
+  "dependencies": {
+    "babel-eslint": "^7.2.3",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
+    "eslint": "^4.1.1",
+    "eslint-config-google": "^0.8.0",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "gulp": "^3.9.1",
+    "mongodb": "^2.2.29",
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.2",
+    "yarn": "^0.24.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

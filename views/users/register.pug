@@ -1,0 +1,25 @@
+extends ../main
+
+block content
+    .container
+        .row
+            .col-md-10.col-md-offset-1
+                .col-md-6.col-md-offset-3
+                    .form-group.has-error
+                        .panel.panel-danger.panel-credentials
+                            .panel-body.form-panel
+                                h2.text-center.color-text Register
+                                hr
+                                form(action="/register" method="post")
+                                    .form-group
+                                    input.form-control(type='text' name='username' placeholder='Username' autofocus)
+                                    .form-group
+                                    input.form-control(type='text' name='password' placeholder='Password')
+                                    .form-group
+                                    input.form-control(type='text' name='confirmPassword' placeholder='Confirm password')
+                                    .form-group
+                                    input.form-control(type='text' name='email' placeholder='E-Mail')
+                                    .form-group
+                                    input.form-control(type='text' name='profilePicture' placeholder='Profile Picture URL (optional)')
+                                    .form-group.text-center
+                                        button.btn.btn-danger(type='submit') Submit
