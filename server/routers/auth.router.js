@@ -1,19 +1,16 @@
 const { Router } = require('express');
 const passport = require('passport');
 
-const attach = (app, data) => {
+const attachTo = (app, data) => {
     const router = new Router();
 
     router
         .get('/login', (req, res) => {
             res.render('users/login');
         })
-        .post('/login', passport.authenticate('local', {
-                successRedirect: '/home',
-                failureRedirect: '/login',
-                failureFlash: true,
-            })
-        )
+        .post('/login', (req, res) => {
+
+        })
         .get('/logout', (req, res) => {
             req.logout();
             res.redirect('/home');
@@ -22,13 +19,9 @@ const attach = (app, data) => {
             res.render('users/register');
         })
         .post('/register', (req, res) => {
-            const user = req.body;
-            return data.user.create(user)
-                .then((dbUser) => {
-                    return res.redirect('./home');
-                });
+            data.userCreate(req.body.username, req.body.password);
         });
     app.use('/', router);
 };
 
-module.exports = attach;
+module.exports = { attachTo };

@@ -41,4 +41,4 @@ const configPassport = (app, data) => {
     });
 };
 
-module.exports = configPassport;
+module.exports = { configPassport };
