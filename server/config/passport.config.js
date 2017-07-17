@@ -1,39 +1,39 @@
 const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
 const { Strategy } = require('passport-local');
+const expressSession = require('express-session');
+const cookieParser = require('cookie-parser');
+const MongoStore = require('connect-mongo')(expressSession);
 
-const configPassport = (app, data) => {
+const configPassport = (app, data, db) => {
     passport.use(new Strategy(
         (username, password, done) => {
-            return users.findUserByCredentials(username)
+            data.users.findBy({ username: username })
                 .then((user) => {
-                    if (user.password !== password) {
-                        done(new Error('Invalid password!'));
+                    if (!user) {
+                        return done(null,
+                            false,
+                            { message: 'Incorrect username.' });
                     }
                     return done(null, user);
-                })
-                .catch((err) => {
-                    return done(err);
                 });
         }
     ));
-
-    app.use(cookieParser());
-    app.use(session({
+    app.use(expressSession({
+        store: new MongoStore({ db }),
         secret: 'express-18',
         resave: true,
         saveUninitialized: true,
     }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(cookieParser());
 
     passport.serializeUser((user, done) => {
         done(null, user.id);
     });
 
     passport.deserializeUser((id, done) => {
-        return users.findById(id)
+        data.users.findById(id)
             .then((user) => {
                 done(null, user);
             })

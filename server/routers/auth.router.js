@@ -3,14 +3,18 @@ const passport = require('passport');
 
 const attachTo = (app, data) => {
     const router = new Router();
-
+    
     router
         .get('/login', (req, res) => {
             res.render('users/login');
         })
-        .post('/login', (req, res) => {
-
-        })
+        .post('/login', passport.authenticate('local',
+            {
+                successRedirect: '/home',
+                failureRedirect: '/login',
+                failureFlash: true,
+            }),
+        )
         .get('/logout', (req, res) => {
             req.logout();
             res.redirect('/home');
@@ -19,7 +23,11 @@ const attachTo = (app, data) => {
             res.render('users/register');
         })
         .post('/register', (req, res) => {
-            data.userCreate(req.body.username, req.body.password);
+            return data.users.userCreate(req.body.firstName, req.body.lastName,
+                req.body.username, req.body.password, req.body.profilePicture)
+                .then(() => {
+                    res.redirect('/home');
+                });
         });
     app.use('/', router);
 };

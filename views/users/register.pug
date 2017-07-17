@@ -12,14 +12,16 @@ block content
                                 hr
                                 form(action="/register" method="post")
                                     .form-group
-                                    input.form-control(type='text' name='username' placeholder='Username' autofocus)
+                                    input.form-control(type='text' required name='firstName' placeholder='First Name' autofocus)
                                     .form-group
-                                    input.form-control(type='text' name='password' placeholder='Password')
+                                    input.form-control(type='text' required name='lastName' placeholder='Last Name')
                                     .form-group
-                                    input.form-control(type='text' name='confirmPassword' placeholder='Confirm password')
+                                    input.form-control(type='text' required name='username' placeholder='Username')
                                     .form-group
-                                    input.form-control(type='text' name='email' placeholder='E-Mail')
+                                    input.form-control(type='text' required name='password' placeholder='Password')
                                     .form-group
-                                    input.form-control(type='text' name='profilePicture' placeholder='Profile Picture URL (optional)')
+                                    input.form-control(type='text' required name='email' placeholder='E-Mail')
+                                    .form-group
+                                    input.form-control(type='text' required name='profilePicture' placeholder='Profile Picture URL (optional)')
                                     .form-group.text-center
                                         button.btn.btn-danger(type='submit') Submit

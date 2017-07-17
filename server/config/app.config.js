@@ -18,7 +18,7 @@ const configApp = (app) => {
             path.join(__dirname, '../../node_modules')
         ));
     app.use('/public', express.static('public'));
-
+    
     // app.use(morgan('combined'));
 };
 
