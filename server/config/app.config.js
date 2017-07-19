@@ -4,6 +4,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
 const morgan = require('morgan');
 
 const configApp = (app) => {
@@ -12,7 +13,9 @@ const configApp = (app) => {
     app.use(bodyParser.json());
 
     app.use(bodyParser.urlencoded({ extended: true }));
-
+    
+    app.use(flash());
+    
     app.use('/libs',
         express.static(
             path.join(__dirname, '../../node_modules')

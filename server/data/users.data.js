@@ -1,17 +1,19 @@
 const { ObjectID } = require('mongodb');
-const encryptor = require('../utils/encryptor');
+const crypt = require('../utils/encryptor');
 
 const getData = (db) => {
     const userCollection = db.collection('users');
     return {
-        userCreate(firstName, lastName, username, password, profilePicture) {
-            const salt = encryptor.generateSalt();
-            const passHash = encryptor.generateHashedPassword(salt, password);
+        userCreate(firstName, lastName, username,
+                   password, email, profilePicture) {
+            const salt = crypt.generateSalt();
+            const passHash = crypt.generateHashedPassword(password, salt);
             const user = {
                 firstName,
                 lastName,
                 username,
                 passHash,
+                email,
                 profilePicture,
             };
             return userCollection.insertOne(user)
