@@ -1,0 +1,11 @@
+extends ../main
+
+block content
+    .container
+        .row
+            .col-md-3.text-center.profile-left-panel
+                a.thumbnail
+                    img(src= userData.profilePicture.src)
+                h3 #{userData.username}
+                p #{userData.firstName}  #{userData.lastName}
+                p E-Mail: #{userData.email}

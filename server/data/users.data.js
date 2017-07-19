@@ -8,13 +8,24 @@ const getData = (db) => {
                    password, email, profilePicture) {
             const salt = crypt.generateSalt();
             const passHash = crypt.generateHashedPassword(password, salt);
+
+            let _profilePicture = {};
+
+            if (!profilePicture.src) {
+                _profilePicture = {
+                    src: '/public/images/default.user.png',
+                };
+            } else {
+                _profilePicture.src = profilePicture.src;
+            }
+
             const user = {
                 firstName,
                 lastName,
                 username,
                 passHash,
                 email,
-                profilePicture,
+                profilePicture: _profilePicture,
             };
             return userCollection.insertOne(user)
                 .then((result) => {

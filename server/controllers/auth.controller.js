@@ -2,6 +2,12 @@ const passport = require('passport');
 
 const getController = (data) => {
     return {
+        getLoginPage(req, res) {
+            res.render('users/login');
+        },
+        getRegisterPage(req, res) {
+            res.render('users/register');
+        },
         logout(req, res) {
             req.logout();
             res.redirect('/home');
@@ -40,6 +46,24 @@ const getController = (data) => {
                     return res.redirect('/home');
                 });
             })(req, res, next);
+        },
+        getProfilePage(req, res) {
+            const username = req.params.username;
+            return data.users.findBy({ username: username })
+                .then((userData) => {
+                    if (!userData) {
+                        return res.render('page-not-found', { user: req.user });
+                    }
+                    return res.render('users/profile', {
+                        user: req.user,
+                        userData: userData,
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.status(500)
+                        .json('An error occurred! Please try again!');
+                });
         },
     };
 };
