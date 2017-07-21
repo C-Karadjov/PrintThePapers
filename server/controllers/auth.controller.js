@@ -65,6 +65,24 @@ const getController = (data) => {
                         .json('An error occurred! Please try again!');
                 });
         },
+        createAdmin(req, res) {
+            if (!req.isAuthenticated() || req.user.role !== 'admin') {
+                res.render('not-authorized-page', { user: req.user });
+            }
+            const targetUser = {
+                username: req.params.username,
+            };
+
+            const newData = { $set: { role: 'admin' } };
+            return data.users.updateUser(targetUser, newData)
+                .then(() => {
+                     res.redirect('/home');
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.render('not-authorized-page', { user: req.user });
+                });
+        },
     };
 };
 

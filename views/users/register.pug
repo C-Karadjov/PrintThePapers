@@ -10,7 +10,7 @@ block content
                             .panel-body.form-panel
                                 h2.text-center.color-text Register
                                 hr
-                                form(action="/register" method="post")
+                                form(action='/register' method='post')
                                     .form-group
                                     input.form-control(type='text' required name='firstName' placeholder='First Name' autofocus)
                                     .form-group
@@ -22,6 +22,6 @@ block content
                                     .form-group
                                     input.form-control(type='text' required name='email' placeholder='E-Mail')
                                     .form-group
-                                    input.form-control(type='text' required name='profilePicture' placeholder='Profile Picture URL (optional)')
+                                    input.form-control(type='text' name='profilePicture' placeholder='Profile Picture URL (optional)')
                                     .form-group.text-center
                                         button.btn.btn-danger(type='submit') Submit

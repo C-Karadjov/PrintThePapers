@@ -5,7 +5,14 @@ block content
         .row
             .col-md-3.text-center.profile-left-panel
                 a.thumbnail
-                    img(src= userData.profilePicture.src)
+                    img(src= userData.profilePicture.src, alt="profile-pic")
                 h3 #{userData.username}
-                p #{userData.firstName}  #{userData.lastName}
-                p E-Mail: #{userData.email}
+                if userData.username != userData.firstName + ' ' + userData.lastName
+                    p #{userData.firstName} #{userData.lastName}
+                if userData.email && user
+                    p E-Mail: #{userData.email}
+                if userData.role == 'admin'
+                    p ADMIN
+                if user && (userData.role != 'admin' && user.role != 'admin')
+                    form(action='/profile/' + userData.username + '/update-status' method='POST')
+                        button.btn.btn-danger(type='submit') Create Admin
