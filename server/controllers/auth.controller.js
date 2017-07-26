@@ -29,7 +29,9 @@ const getController = (data) => {
         login(req, res, next) {
             passport.authenticate('local', (error, user) => {
                 if (error) {
-                    return next(error);
+                    next(error);
+                    return res.status(500)
+                        .json('Server error! Please try again!');
                 }
 
                 if (!user) {
@@ -43,9 +45,16 @@ const getController = (data) => {
                         return res.status(500)
                             .json('Server error! Please try again!');
                     }
-                    return res.redirect('/home');
+                    return res.status(200).json('Login successful!');
                 });
             })(req, res, next);
+        },
+        getMyProfile(req, res) {
+            if (req.isAuthenticated()) {
+                res.render('users/profile', { user: req.user });
+                return;
+            }
+            res.render('users/login', { user: req.user });
         },
         getProfilePage(req, res) {
             const username = req.params.username;
@@ -65,6 +74,41 @@ const getController = (data) => {
                         .json('An error occurred! Please try again!');
                 });
         },
+        getAdminPage(req, res) {
+            if (!req.isAuthenticated() && req.user.role !== 'admin') {
+                return res.redirect('/home');
+            }
+            return data.users.findAll()
+                .then((usersData) => {
+                    if (!usersData) {
+                        return res.render('page-not-found',
+                            { user: req.user });
+                    }
+                    return res.render('users/adminPanel', {
+                        user: req.user,
+                        usersData: usersData,
+                    });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    res.status(500)
+                        .json('An error occurred! Please try again!');
+                });
+        },
+        getUserById(req, res) {
+            const id = req.params.id;
+            return data.users.findById(id)
+                .then((user) => {
+                    if (!user) {
+                        return res.render('page-not-found', { user: req.user });
+                    }
+                    return res.redirect('/profile/' + user.username);
+                })
+                .catch((error) => {
+                    res.status(500)
+                        .json('An error occurred! Please try again!');
+                });
+        },
         createAdmin(req, res) {
             if (!req.isAuthenticated() || req.user.role !== 'admin') {
                 res.render('not-authorized-page', { user: req.user });
@@ -73,10 +117,11 @@ const getController = (data) => {
                 username: req.params.username,
             };
 
-            const newData = { $set: { role: 'admin' } };
+            const newData = { role: 'admin' };
+
             return data.users.updateUser(targetUser, newData)
                 .then(() => {
-                     res.redirect('/home');
+                    res.redirect('/admin-panel');
                 })
                 .catch((err) => {
                     console.log(err);

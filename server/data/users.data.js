@@ -32,6 +32,9 @@ const getData = (db) => {
                     return result;
                 });
         },
+        findAll() {
+            return userCollection.find().toArray();
+        },
         findBy(props) {
             return userCollection.findOne(props);
         },
@@ -51,7 +54,7 @@ const getData = (db) => {
         },
         updateUser(targetUser, newData) {
             return userCollection.updateOne(
-                { username: targetUser.username }, newData);
+                { username: targetUser.username }, { $set: newData });
         },
     };
 };
