@@ -1,21 +1,23 @@
 extends ../main
 
 block content
-    .container
-        table.table.table-striped.table-hover
-            thead
-                tr.alert-danger
-                    th USERNAME
-                    th NAME
-                    th STATUS
-            tbody
-                each users in usersData
-                    tr
-                        td
-                            a.not-style-link(href='/admin-panel/'+ users._id)= users.username
-                        td= users.firstName
-                        if !users.role || user.role != 'admin'
-                            td user
-                        else
-                            td.admin-color= users.role
+    .container-fluid
+        .row
+            .col-md-6.col-md-offset-3
+                table.table.table-hover
+                    thead
+                        tr
+                            th USERNAME
+                            th NAME
+                            th STATUS
+                    tbody
+                        each users in usersData
+                            tr.text-left
+                                td
+                                    a.not-style-link(href='/admin-panel/' + users._id)= users.username
+                                td= users.firstName
+                                if !users.role || user.role != 'admin'
+                                    td user
+                                else
+                                    td.admin-color= users.role
 

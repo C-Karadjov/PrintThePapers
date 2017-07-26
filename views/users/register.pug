@@ -12,18 +12,18 @@ block content
                                 hr
                                 form(action='/register' method='post')
                                     .form-group
-                                    input#first-name-register.form-control(type='text' name='firstName' placeholder='First Name' required='true')
+                                    input#first-name-register.form-control(type='text' name='firstName' placeholder='First Name' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='First Name'")
                                     .form-group
-                                    input#last-name-register.form-control(type='text' name='lastName' placeholder='Last Name' required='true')
+                                    input#last-name-register.form-control(type='text' name='lastName' placeholder='Last Name' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='Last Name'")
                                     .form-group
-                                    input#username-register.form-control(type='text' name='username' placeholder='Username' required='true')
+                                    input#username-register.form-control(type='text' name='username' placeholder='Username' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='Username'")
                                     .form-group
-                                    input#password-register.form-control(type='password' name='password' placeholder='Password' required='true')
+                                    input#password-register.form-control(type='password' name='password' placeholder='Password' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='Password'")
                                     .form-group
-                                    input#reenter-password-register.form-control(type='password' name='con-password' placeholder='Confirm Password' required='true')
+                                    input#reenter-password-register.form-control(type='password' name='con-password' placeholder='Confirm Password' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='Confirm Password'")
                                     .form-group
-                                    input#email-register.form-control(type='text' name='email' placeholder='E-Mail' required='true')
+                                    input#email-register.form-control(type='text' name='email' placeholder='E-Mail' required='true' onfocus="this.placeholder = ''" onblur="this.placeholder ='E-Mail'")
                                     .form-group
-                                    input#avatar-register.form-control(type='text' name='profilePicture' placeholder='Profile Picture URL (optional)')
+                                    input#avatar-register.form-control(type='text' name='avatar' placeholder='Profile Picture URL (optional)' onfocus="this.placeholder = ''" onblur="this.placeholder ='Profile Picture URL (optional)'")
                                     .form-group.text-center
-                                        button#btn-register.btn.btn-danger(type='submit') Submit
+                                        button#btn-register.btn.btn-danger(type='submit' onclick='return false') Submit

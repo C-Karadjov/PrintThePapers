@@ -11,7 +11,7 @@ const getData = (db) => {
 
             let _profilePicture = {};
 
-            if (!profilePicture.src) {
+            if (!profilePicture) {
                 _profilePicture = {
                     src: '/public/images/default.user.png',
                 };

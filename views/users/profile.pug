@@ -4,8 +4,8 @@ block content
     .container
         .row
             .col-md-3.text-center.profile-left-panel
-                a.thumbnail
-                    img(src= userData.profilePicture.src, alt="profile-pic")
+                .thumbnail
+                    img.img-rounded(src= userData.profilePicture.src, alt="profile-pic")
                 h3 #{userData.username}
                 if userData.username != userData.firstName + ' ' + userData.lastName
                     p #{userData.firstName} #{userData.lastName}
@@ -15,4 +15,4 @@ block content
                     p ADMIN
                 if user && (userData.role != 'admin' && user.role == 'admin')
                     form(action='/profile/' + userData.username + '/update-status' method='POST')
-                        button.btn.btn-danger(type='submit') Create Admin
+                        button.btn.btn-danger.fix-footer(type='submit') Create Admin

@@ -11,48 +11,50 @@ head
     script(src="/libs/bootstrap/dist/js/bootstrap.js")
     script(src="/libs/toastr/build/toastr.min.js")
 body
-    nav.navbar.navbar-inverse.navbar-fixed-top
-        .container
-            .navbar-header
-                button.navbar-toggle.collapsed(type='button', data-toggle='collapse')
-                    span.sr-only
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-            .navbar-collapse.collapse
-                ul.nav.navbar-nav.navbar-left
+nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse')
+                span.sr-only
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-left
+                li
+                    a(href='/home')
+                        img(src='/public/images/home.png' height='30')
+                li
+                    a.nav-products(href='/products') PRODUCTS
+            ul.nav.navbar-nav.navbar-right
+                if user && user.role == 'admin'
                     li
-                        a(href='/home')
-                            img(src='/public/images/home.png' height='30')
+                        a(href='/admin-panel') ADMIN PANEL
+                            img.nav-img(src='/public/images/admin.png' height='30')
+                if !user
                     li
-                        a.nav-products(href='/products') PRODUCTS
-                ul.nav.navbar-nav.navbar-right
-                    if user && user.role == 'admin'
-                        li
-                            a(href='/admin-panel') ADMIN PANEL
-                                img.nav-img(src='/public/images/admin.png' height='30')
-                    if !user
-                        li
-                            a(href='/login') LOGIN
-                                img.nav-img(src='/public/images/login.png' height='30')
-                        li
-                            a(href='/register') REGISTER
-                                img.nav-img(src='/public/images/register.png' height='30')
-                    else
-                        li
-                            a(href='/profile/' + user.username) PROFILE
-                                img.nav-img(src='/public/images/profile.png' height='30')
-                        li
-                            a(href='/logout') LOGOUT
-                                img.nav-img(src='/public/images/logout.png' height='30')
+                        a(href='/login') LOGIN
+                            img.nav-img(src='/public/images/login.png' height='30')
+                    li
+                        a(href='/register') REGISTER
+                            img.nav-img(src='/public/images/register.png' height='30')
+                else
+                    li
+                        a(href='/profile/' + user.username) PROFILE
+                            img.nav-img(src='/public/images/profile.png' height='30')
+                    li
+                        a(href='/logout') LOGOUT
+                            img.nav-img(src='/public/images/logout.png' height='30')
 
-    #main-container
-        block content
-    footer
-        nav.navbar.navbar-inverse.navbar.navbar-fixed-bottom.text-center
-            a(href='#') FOOTER
+#main-container
+    block content
 
-    script(src="/public/js/requester.js")
-    script(src="/public/js/user.auth.js")
+footer.mainFoot
+    .container-fluid.text-center
+        .footer
+            p Copyright © PrintThePapers 2016. All right reserved.
+
+script(src="/public/js/requester.js")
+script(src="/public/js/user.auth.js")
 
 
