@@ -56,6 +56,9 @@ const getData = (db) => {
             return userCollection.updateOne(
                 { username: targetUser.username }, { $set: newData });
         },
+        removeUser(userForDelete) {
+            return userCollection.deleteOne({ username: userForDelete.username });
+        },
     };
 };
 

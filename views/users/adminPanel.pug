@@ -1,7 +1,7 @@
 extends ../main
 
 block content
-    .container-fluid
+    .container
         .row
             .col-md-6.col-md-offset-3
                 table.table.table-hover
@@ -12,7 +12,7 @@ block content
                             th STATUS
                     tbody
                         each users in usersData
-                            tr.text-left
+                            tr
                                 td
                                     a.not-style-link(href='/admin-panel/' + users._id)= users.username
                                 td= users.firstName

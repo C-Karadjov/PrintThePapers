@@ -9,12 +9,8 @@ const attachTo = (app, data) => {
         .post('/login', controllers.login)
         .get('/logout', controllers.logout)
         .get('/register', controllers.getRegisterPage)
-        .post('/register', controllers.register)
-        .get('/profile', controllers.getMyProfile)
-        .get('/profile/:username', controllers.getProfilePage)
-        .get('/admin-panel', controllers.getAdminPage)
-        .get('/admin-panel/:id', controllers.getUserById)
-        .post('/profile/:username/update-status', controllers.createAdmin);
+        .post('/register', controllers.register);
+
     app.use('/', router);
 };
 

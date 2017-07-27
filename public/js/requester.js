@@ -1,5 +1,5 @@
 /* globals $ */
-
+// eslint-disable-next-line
 const requester = (function() {
     return {
         getJSON(url, headers={}) {

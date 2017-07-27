@@ -36,7 +36,7 @@
             toastr.error('Please fill out all of the fields!');
             return;
         }
-        
+
         for (const prop in body) {
             if (!body[prop].trim() && prop !== 'avatar') {
                 toastr.error('Please fill out all of the fields!' +
@@ -44,11 +44,25 @@
                 return;
             }
         }
+        const nameRegex = /^[a-zA-Z]/;
+        if (!nameRegex.test(body.firstName)) {
+            toastr.error('First name can contains ' +
+                'only small or capital letters!');
+            $('#first-name-register').val('').focus();
+            return;
+        }
 
         if (body.firstName.length < 2 || body.firstName.length > 18) {
             toastr.error('First name cannot be smaller ' +
                 'than 2 symbols or greater than 18!');
             $('#first-name-register').val('').focus();
+            return;
+        }
+
+        if (!nameRegex.test(body.lastName)) {
+            toastr.error('Last name can contains ' +
+                'only small or capital letters!');
+            $('#last-name-register').val('').focus();
             return;
         }
 
@@ -59,10 +73,24 @@
             return;
         }
 
+        const userNameRegChecker = new RegExp('/[a-z|A-z|0-9|_|\.]/g');
+        if (userNameRegChecker.test(body.username)) {
+            toastr.error('Invalid username symbols!');
+            $('#username-register').val('').focus();
+            return;
+        }
+
         if (body.username.length < 2 || body.username.length > 18) {
             toastr.error('Username cannot be smaller ' +
                 'than 2 symbols or greater than 18!');
             $('#username-register').val('').focus();
+            return;
+        }
+
+        const passwordRegChecker = new RegExp('/[a-z|A-z|0-9]/g');
+        if (passwordRegChecker.test(body.password)) {
+            toastr.error('Invalid password symbol!');
+            $('#password-register').val('').focus();
             return;
         }
 
@@ -80,6 +108,7 @@
             return;
         }
 
+        // eslint-disable-next-line
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!emailRegex.test(body.email)) {
             toastr.error('Invalid E-Mail!');
@@ -97,13 +126,7 @@
             })
             .catch((err) => {
                 console.log(err);
-                if (err.responseJSON.code === 11000) {
-                    toastr.error(`Username "${body.username}" already exists!`);
-                    $('#username-register').val('');
-                } else {
-                    console.log(err);
-                    toastr.error('An error occurred! Please try again!');
-                }
+                toastr.error('An error occurred! Please try again!');
             });
     });
 }());

@@ -16,3 +16,6 @@ block content
                 if user && (userData.role != 'admin' && user.role == 'admin')
                     form(action='/profile/' + userData.username + '/update-status' method='POST')
                         button.btn.btn-danger.fix-footer(type='submit') Create Admin
+                if user && (userData.role != 'admin' && user.role == 'admin')
+                    form(action='/profile/' + userData.username + '/delete-user' method='POST')
+                        button.btn.btn-danger.fix-footer(type='submit') Delete User
