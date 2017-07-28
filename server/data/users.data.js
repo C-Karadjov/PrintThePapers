@@ -32,6 +32,24 @@ const getData = (db) => {
                     return result;
                 });
         },
+        findByPage(page) {
+            page = page || 1;
+            const pageSize = 10;
+
+            return userCollection.find()
+                .skip((page - 1) * pageSize)
+                .limit(pageSize).toArray()
+                .then((result)=>{
+                    return userCollection.count()
+                        .then((count)=> {
+                            count = {
+                                users: result,
+                                count,
+                            };
+                            return count;
+                        });
+                });
+        },
         findAll() {
             return userCollection.find().toArray();
         },
@@ -57,7 +75,8 @@ const getData = (db) => {
                 { username: targetUser.username }, { $set: newData });
         },
         removeUser(userForDelete) {
-            return userCollection.deleteOne({ username: userForDelete.username });
+            return userCollection.
+            deleteOne({ username: userForDelete.username });
         },
     };
 };
