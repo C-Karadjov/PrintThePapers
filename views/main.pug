@@ -11,7 +11,7 @@ head
     script(src="/libs/bootstrap/dist/js/bootstrap.js")
     script(src="/libs/toastr/build/toastr.min.js")
 body
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-inverse.navbar-fixed-top.top-nav-color
     .container
         .navbar-header
             button.navbar-toggle.collapsed(type='button', data-toggle='collapse')
@@ -22,29 +22,50 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         .navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-left
                 li
-                    a(href='/home')
-                        img(src='/public/images/home.png' height='30')
-                li
-                    a.nav-products(href='/products') PRODUCTS
+                    img(src='/public/images/logo.png')
+
             ul.nav.navbar-nav.navbar-right
                 if user && user.role == 'admin'
                     li
                         a(href='/admin-panel') ADMIN PANEL
-                            img.nav-img(src='/public/images/admin.png' height='30')
+                            img.nav-img.nav-height(src='/public/images/admin.png')
                 if !user
                     li
                         a(href='/login') LOGIN
-                            img.nav-img(src='/public/images/login.png' height='30')
+                            img.nav-img.nav-height(src='/public/images/login.png')
                     li
                         a(href='/register') REGISTER
-                            img.nav-img(src='/public/images/register.png' height='30')
+                            img.nav-img.nav-height(src='/public/images/register.png')
                 else
                     li
                         a(href='/profile/' + user.username) PROFILE
-                            img.nav-img(src='/public/images/profile.png' height='30')
+                            img.nav-img.nav-height(src='/public/images/profile.png')
                     li
                         a(href='/logout') LOGOUT
-                            img.nav-img(src='/public/images/logout.png' height='30')
+                            img.nav-img.nav-height(src='/public/images/logout.png')
+nav.navbar.navbar-inverse.nav-color
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse')
+                span.sr-only
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav.navbar-left
+                li
+                    a(href='/home') HOME
+                li
+                    a(href='/products') PRODUCTS
+                li.nav-search
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            form.navbar-form.navbar-right(action='/search', method='post')
+                                .form-group
+                                    input#search-bar.form-control.search(type='text', name='query' placeholder='Search products...', onfocus='this.placeholder = ""' onblur='this.placeholder ="Search products..."')
+                                    input.search-img(type='image', name='submit', src='/public/images/search.png')
+                                    //button#btn-search.btn.btn-xs.btn-danger(type="submit") Search!
+
 
 #main-container
     block content
@@ -56,5 +77,6 @@ footer.mainFoot
 
 script(src="/public/js/requester.js")
 script(src="/public/js/user.auth.js")
+script(src="/public/js/slideshow.js")
 
 

@@ -13,6 +13,8 @@ block content
                     p E-Mail: #{userData.email}
                 if userData.role == 'admin'
                     p ADMIN
+                else
+                    p Regular User
                 if user && (userData.role != 'admin' && user.role == 'admin')
                     form(action='/profile/' + userData.username + '/update-status' method='POST')
                         button.btn.btn-danger.fix-footer(type='submit') Create Admin
