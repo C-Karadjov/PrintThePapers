@@ -7,10 +7,10 @@ const attachTo = (app, data) => {
     router
         .get('/profile', controllers.getMyProfile)
         .get('/profile/:username', controllers.getProfilePage)
-        .get('/admin-panel', controllers.getAdminPage)
-        .get('/admin-panel/:id', controllers.getUserById)
-        .post('/profile/:username/update-status', controllers.createAdmin)
-        .post('/profile/:username/delete-user', controllers.deleteUser);
+        // .get('/admin-panel', controllers.getAdminPage)
+        // .get('/admin-panel/:id', controllers.getUserById)
+        .post('/profile/:username/update-status', controllers.createAdmin);
+        // .post('/profile/:username/delete-user', controllers.deleteUser);
     app.use('/', router);
 };
 

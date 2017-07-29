@@ -25,45 +25,45 @@ const getController = (data) => {
                         .json('An error occurred! Please try again!');
                 });
         },
-        getAdminPage(req, res) {
-            if (!req.isAuthenticated() && req.user.role !== 'admin') {
-                return res.render('not-authorized-page', { user: req.user });
-            }
-
-            const page = +req.query.page || 1;
-            let totalPagesCount;
-            const pageSize = 10;
-
-            return data.users.findByPage(page)
-                .then((usersData) => {
-                    totalPagesCount = Math.ceil(usersData.count / pageSize);
-                    res.render('users/adminPanel',
-                        {
-                            usersData: usersData.users,
-                            page,
-                            totalPagesCount,
-                            user: req.user,
-                        });
-                })
-                .catch((error) => {
-                    res.status(500)
-                        .send(error);
-                });
-        },
-        getUserById(req, res) {
-            const id = req.params.id;
-            return data.users.findById(id)
-                .then((user) => {
-                    if (!user) {
-                        return res.render('page-not-found', { user: req.user });
-                    }
-                    return res.redirect('/profile/' + user.username);
-                })
-                .catch((error) => {
-                    res.status(500)
-                        .json('An error occurred! Please try again!');
-                });
-        },
+        // getAdminPage(req, res) {
+        //     if (!req.isAuthenticated() && req.user.role !== 'admin') {
+        //         return res.render('not-authorized-page', { user: req.user });
+        //     }
+        //
+        //     const page = +req.query.page || 1;
+        //     let totalPagesCount;
+        //     const pageSize = 10;
+        //
+        //     return data.users.findByPage(page)
+        //         .then((usersData) => {
+        //             totalPagesCount = Math.ceil(usersData.count / pageSize);
+        //             res.render('users/adminPanel',
+        //                 {
+        //                     usersData: usersData.users,
+        //                     page,
+        //                     totalPagesCount,
+        //                     user: req.user,
+        //                 });
+        //         })
+        //         .catch((error) => {
+        //             res.status(500)
+        //                 .send(error);
+        //         });
+        // },
+        // getUserById(req, res) {
+        //     const id = req.params.id;
+        //     return data.users.findById(id)
+        //         .then((user) => {
+        //             if (!user) {
+        //                 return res.render('page-not-found', { user: req.user });
+        //             }
+        //             return res.redirect('/profile/' + user.username);
+        //         })
+        //         .catch((error) => {
+        //             res.status(500)
+        //                 .json('An error occurred! Please try again!');
+        //         });
+        // },
         createAdmin(req, res) {
             if (!req.isAuthenticated() || req.user.role !== 'admin') {
                 res.render('not-authorized-page', { user: req.user });
