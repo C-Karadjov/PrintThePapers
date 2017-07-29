@@ -1,9 +1,10 @@
 /* globals process */
 
-const connectionString = 'mongodb://localhost/PrintThePapers';
+const connectionString = 'mongodb://localhost/PrintThePapers' ||
+    'mongodb://172.31.46.210:27017/PrintThePapers';
 
 module.exports = {
     // eslint-disable-next-line no-process-env
-    port: process.env.PORT || 3003,
+    port: 80 || 3003,
     connectionString: connectionString,
 };
