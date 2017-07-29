@@ -27,23 +27,27 @@ const getController = (data) => {
         },
         getAdminPage(req, res) {
             if (!req.isAuthenticated() && req.user.role !== 'admin') {
-                return res.redirect('/home');
+                return res.render('not-authorized-page', { user: req.user });
             }
-            return data.users.findAll()
+
+            const page = +req.query.page || 1;
+            let totalPagesCount;
+            const pageSize = 10;
+
+            return data.users.findByPage(page)
                 .then((usersData) => {
-                    if (!usersData) {
-                        return res.render('page-not-found',
-                            { user: req.user });
-                    }
-                    return res.render('users/adminPanel', {
-                        user: req.user,
-                        usersData: usersData,
-                    });
+                    totalPagesCount = Math.ceil(usersData.count / pageSize);
+                    res.render('users/adminPanel',
+                        {
+                            usersData: usersData.users,
+                            page,
+                            totalPagesCount,
+                            user: req.user,
+                        });
                 })
                 .catch((error) => {
-                    console.log(error);
                     res.status(500)
-                        .json('An error occurred! Please try again!');
+                        .send(error);
                 });
         },
         getUserById(req, res) {
