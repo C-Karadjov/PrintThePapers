@@ -3,7 +3,7 @@ const { ObjectID } = require('mongodb');
 const id = ObjectID.createFromHexString('59772f761bf40c14140d4d55');
 
 
-// transferFile.pushFile('zaproverka.zip');
+// transferFile.push('zaproverka.zip');
 // function stateChange() {
 //     setTimeout(() => {
 //         console.log(transferFile.retId);
@@ -11,6 +11,6 @@ const id = ObjectID.createFromHexString('59772f761bf40c14140d4d55');
 // }
 // stateChange();
 
-// transferFile.pullFile('simpleText.txt', '../');
-transferFile.pullFile('zaproverka.zip', '../');
+// transferFile.pull('simpleText.txt', '../');
+transferFile.pull('zaproverka.zip', '../');
 

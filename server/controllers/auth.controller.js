@@ -33,14 +33,16 @@ const getController = (data) => {
                 }
 
                 if (!user) {
-                    return res.status(400)
+                    return res
+                        .status(400)
                         .json('Invalid username or password!');
                 }
 
                 return req.login(user, (err) => {
                     if (err) {
                         next(err);
-                        return res.status(500)
+                        return res
+                            .status(500)
                             .json('Server error! Please try again!');
                     }
                     return res.redirect('/home');
@@ -76,7 +78,7 @@ const getController = (data) => {
             const newData = { $set: { role: 'admin' } };
             return data.users.updateUser(targetUser, newData)
                 .then(() => {
-                     res.redirect('/home');
+                    res.redirect('/home');
                 })
                 .catch((err) => {
                     console.log(err);

@@ -5,7 +5,7 @@ const fs = require('fs');
 const fileCollection = 'files';
 
 // files to push must be less than 16MB
-const pushFile = (fileName) => {
+const push = (fileName) => {
     // validate filename
     fs.readFile(fileName, null, (err, data) => {
         if (!err) {
@@ -25,7 +25,7 @@ const pushFile = (fileName) => {
     });
 };
 
-const pullFile = (idOrName, path) => {
+const pull = (idOrName, path) => {
     dataBase.connect(conectionstring)
         .then(async(db) => {
             let finded;
@@ -33,6 +33,7 @@ const pullFile = (idOrName, path) => {
                 finded = await db.collection(fileCollection)
                     .findOne(idOrName);
             } else {
+                // finding first file with name idOrName
                 finded = await (db.collection(fileCollection)
                     .findOne({ fileName: idOrName }));
             }
@@ -51,4 +52,4 @@ const pullFile = (idOrName, path) => {
         });
 };
 
-module.exports = { pushFile, pullFile };
+module.exports = { push, pull };
