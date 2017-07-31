@@ -1,0 +1,277 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title PrintThePapers
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css')
+    link(rel='stylesheet', type='text/css', href='../public/Design_HTML/slider/nivo-slider/themes/default/default.css')
+    link(rel='stylesheet', type='text/css', href='../public/Design_HTML/slider/nivo-slider/nivo-slider.css')
+    link(rel='stylesheet', type='text/css', href='../public/Design_HTML/slider/nivo-lightbox/nivo-lightbox.css')
+    link(rel='stylesheet', type='text/css', href='../public/Design_HTML/slider/nivo-lightbox/themes/default/default.css')
+    link(rel='stylesheet', type='text/css', href='../public/Design_HTML/css/hover.css')
+    link(rel='stylesheet prefetch', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+    link(rel='stylesheet', href='../public/Design_HTML/css/style.css')
+  body
+    #pre-header
+      .container
+        nav#company-nav
+          a(title='Продукти')
+            | Обслужване на клиенти:  00359 999 999 999      |     Понеделник - Петък 09:00 - 18:00     |
+          a(href='#', title='Contact Us') Контактна форма
+          a.ion-social-facebook(href='#', title='Facebook')
+          a.ion-android-search(href='#', title='Search the Site')
+    header
+      #pre-menu
+        .container
+          a.logo(href='/', title='Онлайн Принт') PrintThePapers
+          nav#main-nav
+            a(href='#', title='Нашите продукти', data-menu='products') Продукти
+            a(href='#', title='За нас', data-menu='about') За нас
+            a(href='#', title='Контакти', data-menu='contacts') Контакти
+            a(href='#', title='Помощен център', data-menu='help') Помощен център
+            a(href='/login', title='Вход')
+              i.ion-android-person
+              |   Вход
+          a#responsive-menu-button
+            i.ion-android-menu(title='Меню')
+    section.mega-menu(data-menu='products')
+      .container
+        .one-third.service
+          a(href='../public/Design_HTML/vizitki.html')
+            i.ion-android-map
+          h5 Визитни картички
+        .one-third.service
+          a(href='#')
+            i.ion-android-map
+          h5 Флаери
+        .one-third.service
+          a(href='#')
+            i.ion-android-map
+          h5 Плакати
+        .full.close-menu
+          i.ion-ios-arrow-up
+    section.mega-menu(data-menu='about')
+      .container
+        .one-third.service
+          a(href='#')
+            i.ion-ios-people-outline
+          h5 История на фирмата
+        .one-third.service
+          a(href='#')
+            i.ion-person-add
+          h5 Работа при нас
+        .one-third.service
+          a(href='#')
+            i.ion-arrow-graph-up-right
+          h5 Производствен процес
+        .full.close-menu
+          i.ion-ios-arrow-up
+    section.mega-menu(data-menu='contacts')
+      .container
+        .one-third.service
+          a(href='#')
+            i.ion-document-text
+          h5 Обща информация
+        .one-third.service
+          a(href='#')
+            i.ion-ios-calculator
+          h5 Запитване за цени
+        .one-third.service
+          a(href='#')
+            i.ion-android-laptop
+          h5 Отдел Предпечат
+        .full.close-menu
+          i.ion-ios-arrow-up
+    section.mega-menu(data-menu='help')
+      .container
+        .one-third.service
+          a(href='#')
+            i.ion-android-laptop
+          h5 Файлове за печат
+        .one-third.service
+          a(href='#')
+            i.ion-merge
+          h5 Поръчки
+        .one-third.service
+          a(href='#')
+            i.ion-ios-calculator
+          h5 Плащане и фактуриране
+        .full.close-menu
+          i.ion-ios-arrow-up
+    section#responsive-menu
+      a(href='#', title='Нашите продукти', data-menu='products') Продукти
+      a(href='#', title='За нас', data-menu='about') За нас
+      a(href='#', title='Контакти', data-menu='contacts') Контакти
+      a(href='#', title='Помощен център', data-menu='help') Помощен център
+      a(href='#', title='Контактна форма') Контактна форма
+    main
+      .container
+        section.padder
+          .two-thirds
+            .theme-default
+              #slider.nivoSlider
+                a(href='adv-1.html', title='advertising')
+                  img(src='../public/Design_HTML/ims/01.jpg', alt='advertising', title='#adv-1')
+                a(href='adv-2.html', title='advertising')
+                  img(src='../public/Design_HTML/ims/02.jpg', alt='advertising', title='#adv-2')
+                a(href='adv-3.html', title='advertising')
+                  img(src='../public/Design_HTML/ims/03.jpg', alt='advertising', title='#adv-3')
+              #adv-1.nivo-html-caption
+                h1
+                  i.ion-information-circled
+                  |   Advertising -1
+              #adv-2.nivo-html-caption
+                h1
+                  i.ion-information-circled
+                  |   Advertising -2
+              #adv-3.nivo-html-caption
+                h1
+                  i.ion-information-circled
+                  |   Advertising -3
+            .padder15
+            h4 // НАШИТЕ ПЕЧАТНИ ПРОДУКТИ
+            p
+              | Trying to balance running a business and creating the types of digital content you know your business needs can be difficult, often impossible. With outsourced digital content services from Synergiste, we eliminate the burden of the entire process of research, creation, and publishing of digital content and place it in the hands of our experts. Our content creators often work hand in hand with our design and marketing specialists - a relationship which results in lower costs which we pass on to you.
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/viz.jpg', alt='vizitki')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Визитки
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/flyers.jpg', alt='flyers')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Флаери
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/posters.jpg', alt='posters')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Плакати
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/papki.jpg', alt='papki')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Папки
+            .padder2  
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/broshure.jpg', alt='broshure')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Брошури
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/catalogue.jpg', alt='catalogue')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Каталози
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/calendars.jpg', alt='calendars')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Календари
+            .one-fourth
+              figure.snip1218
+                a(href='../public/Design_HTML/vizitki.html')
+                .image
+                  img(src='../public/Design_HTML/products/img-hover/stickers.jpg', alt='stickers')
+                  p "Вижте повече"
+                figcaption
+                  h3
+                    span Стикери
+          .one-third.end.sidebar
+            .price-box
+              .price-box-lead
+                span(style='color: #f39700') ФЛАЕРИ
+                br
+                |            САМО ДО КРАЯ НА МЕСЕЦА:
+              .price-box-price
+                | 1000 бр. / 100 лв.
+              a.ghost-button(href='#', title='Поръчай') Поръчай!
+            h5(align='center') Три топ причини, за да възложите печатните си материали на нас:
+            ul.boxed-benefits
+              li
+                strong Отлично качество
+                |  - Разполагаме с най-новите машини за дигитален и офсетов печат и довършителни операции.
+              li
+                strong Кратки срокове
+                |  - Оптимизираният ни процес на работа ни позволява да изпълним всякакви тиражи в кратки срокове.
+              li
+                strong Защото сме експерти
+                |  - В нашите отдели работят експерти във всеки един етап от дизайнерския, предпечатния и печатния процес.
+            .mailing-list-box
+              .mailing-list-box-lead
+                | Региктрирайте се за нашия бюлетин и останете информирани чрез нашите новини и съвети.
+              input.mailing-list-email(type='text')
+              input.mailing-list-submit(type='submit', value='E-mail')
+    section#big-nav
+      .container
+        .one-fourth
+          h5
+            a(href='#', title='Продукти') Продукти
+          nav
+            a(href='#', title='Визитни картички') Визитни картички
+            a(href='#', title='Флаери') Флаери
+            a(href='#', title='Плакати') Плакати
+        .one-fourth
+          h5
+            a(href='#', title='За нас') За нас
+          nav
+            a(href='#', title='История на фирмата') История на фирмата
+            a(href='#', title='Работа при нас') Работа при нас
+            a(href='#', title='Производствен процес') Производствен процес
+        .one-fourth
+          h5
+            a(href='#', title='Контакти') Контакти
+          nav
+            a(href='#', title='Обща информация') Обща информация
+            a(href='#', title='Запитване за цени') Запитване за цени
+            a(href='#', title='Отдел Предпечат') Отдел Предпечат
+        .one-fourth
+          h5
+            a(href='#', title='Помощен център') Помощен център
+          nav
+            a(href='#', title='Файлове за печат') Файлове за печат
+            a(href='#', title='Поръчки') Поръчки
+            a(href='#', title='Плащане и фактуриране') Плащане и фактуриране
+    footer
+      .container
+        .copyright
+          | © 2017  PrintThePapers ООД. Всички права западени.
+        nav#footer-nav
+          a(href='#', title='Карта на сайта') Карта на сайта
+          a(href='#', title='Декларация за поверителност') Декларация за поверителност
+          a(href='#', title='Условия за ползване') Условия за ползване
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(src='../public/Design_HTML/slider/nivo-slider/jquery.nivo.slider.js', type='text/javascript')
+    script(type='text/javascript').
+      $(window).load(function() {
+      $('#slider').nivoSlider();
+      });
+    script(src='../public/Design_HTML/js/menu.js')
