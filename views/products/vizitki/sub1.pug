@@ -1,0 +1,150 @@
+extends ../../index
+
+block content
+  if user
+    main
+      .containerHTML
+        section.padder
+          .two-thirds
+            .theme-default
+              #slider.nivoSlider
+                a.lbox(data-lightbox-gallery='group1', href='#', title='визитки-1 варианти')
+                  img(src='/public/Design_HTML/products/viz-1.jpg', alt='визитки-1 варианти', title='#viz-1')
+              #viz-1.nivo-html-caption
+                h1
+                  i.ion-help-circled
+                  |   визитки-1 варианти
+            //- group1 pictures
+            div(style='display: none')
+              a.lbox(data-lightbox-gallery='group1', href='#', title='визитки-1 варианти')
+            //- group1 pictures wnd
+            //- tabs
+            .padder15
+            .tabs
+              input#tabone(type='radio', name='tabs', checked='checked')
+              label(for='tabone') Описание
+              .tab
+                p
+                  | - Single-sided colour print (4/0) back blank
+                  br
+                  |     - Wide range of paper stocks available
+                  br
+                  |     - 300 g/m² art print paper matt
+                  br
+                  |     - 400 g/m² art print paper matt
+                  br
+                  |     - 250 g/m² offset paper: both sides untreated, to be written
+                  br
+                  |     - 280 g/m² chromo-sulfate board: front glossy, back untreated (writable)
+                  br
+                  |     - 450 g/m² chromo-sulfate board
+                  br
+                  |     - 250 g/m² CHROMOLUX Pearl: Pearl-white front.
+                  br
+                  |     - 250 g/m² Magic Chrome (mirror effect): The silver shimmering front provides a great appearance.
+                  br
+                  |     - 250 g/m² Splendorlux (FEDRIGONI): Front high-gloss-coated; white back (writeable).
+                  br
+                  |     - 200 µ  plastic film: Tear-resistant matt-white film (water- and oil-resistant)
+                  br
+                  |     - 300 g/m² recycled board (100% recycled paper, "Blue Angel" environment seal): with
+                  br
+                  |     - 1.3 times volume and excellent opacity
+              input#tabtwo(type='radio', name='tabs')
+              label(for='tabtwo') Детайлна информация
+              .tab
+                p
+                  | - Resolution at least 300 dpi for an original image size of.
+                  br
+                  |   - Include a surrounding trim of 2 mm, important information should be at least 4 mm from the edge of the final format size
+                  br
+                  |   - Fonts must be completely imbedded or converted to curves.
+                  br
+                  |   - colour mode CMYK, FOGRA39 (ISO coated v2) for  coated paper, FOGRA47 (PSO uncoated ISO12647) for uncoated paper
+                  br
+                  |   - Maximum colour application of 300%
+                  br
+                  |   - We will not check for spelling and/or typographical errors.
+                  br
+                  |   - Please pay attention to the reading direction when creating your print files
+                  br
+                  |   - We will not check for overprint settings.
+                  br
+                  |   - Transparencies created with CorelDRAW must be reduced.
+                  br
+                  |   - Comments will be deleted and not printed.
+                  br
+                  |   - Form field content will be printed.
+                  br
+                  |   - Please consult the data sheet when creating your print files.
+              input#tabthree(type='radio', name='tabs')
+              label(for='tabthree') Срокове за изпълнение
+              .tab
+                p
+                  | The production times listed apply – unless otherwise indicated upon receipt of your complete order (including printing data and payment) on working days before 9 pm (GMT) .
+                  br
+                  br
+                  |  - 280 g/m² chromo cardboard	4-5 working days
+                  br
+                  |  - 450 g/m² chromo-sulfate board	4-5 working days
+                  br
+                  |  - 300 g/m² art print paper	3-4 working days
+                  br
+                  |  	-- 1-2 working days
+                  br
+                  |  	-- Same Day
+                  br
+                  |  - 7 am (GMT) submission deadline
+                  br
+                  |  - 400 g/m² art print paper	3-4 working days
+            //- tabs end
+            .padder15
+            h4 Опции на поръчката
+            br
+            form(name='form', action='', method='POST', enctype='multipart/form-data')
+              select#option1(name='option1', size='1')
+                option(value='20') 100 бр. - 350g/m2 картон
+                option(value='30') 200 бр. - 350g/m2 картон
+                option(value='40') 300 бр. - 350g/m2 картон
+              br
+              br
+              h4 Допълнителни опции
+              br
+              select#option1(name='option1', size='1')
+                option(value='noopt') без допълнителни опции
+                option(value='30lam') 30 mk ламинат
+                option(value='50lam') 50 mk ламинат
+                option(value='lak') uv лакиране
+              br
+              br
+              textarea.form-styling(placeholder='Описание на поръчката')
+              input#submit.btn.btn-dark(name='submit', type='submit', value='Поръчай')
+              a.btn.btn-dark(style='float: right; cursor: default') Обща сума: 68,00 лв.
+          .one-third.end.sidebar
+            .price-box
+              .price-box-lead
+                span(style='color: #f39700') ФЛАЕРИ
+                br
+                |            САМО ДО КРАЯ НА МЕСЕЦА:
+              .price-box-price
+                | 1000 бр. / 100 лв.
+              a.ghost-button(href='#', title='Поръчай') Поръчай!
+            h5(align='center') Три топ причини, за да възложите печатните си материали на нас:
+            ul.boxed-benefits
+              li
+                strong Отлично качество
+                |  - Разполагаме с най-новите машини за дигитален и офсетов печат и довършителни операции.
+              li
+                strong Кратки срокове
+                |  - Оптимизираният ни процес на работа ни позволява да изпълним всякакви тиражи в кратки срокове.
+              li
+                strong Защото сме експерти
+                |  - В нашите отдели работят експерти във всеки един етап от дизайнерския, предпечатния и печатния процес.
+            .mailing-list-box
+              .mailing-list-box-lead
+                | Регистрирайте се за нашия бюлетин и останете информирани чрез нашите новини и съвети.
+              input.mailing-list-email(type='text')
+              input.mailing-list-submit(type='submit', value='E-mail')
+  else
+    h1
+      a(href='/register') You cannot make request until unregistred

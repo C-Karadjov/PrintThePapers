@@ -1,0 +1,57 @@
+extends ../index
+
+block content
+  main
+    .containerHTML
+      section.padder
+        .two-thirds
+          .theme-default
+            #slider.nivoSlider
+              a(href='/products/vizitki/sub1', title='vizitki')
+                img(src='/public/Design_HTML/products/viz-1.jpg', alt='vizitki', title='#viz-1')
+              a(href='/products/vizitki/sub1', title='vizitki')
+                img(src='/public/Design_HTML/products/viz-2.jpg', alt='vizitki', title='#viz-2')
+            #viz-1.nivo-html-caption
+              h1
+                i.ion-ios-cart
+                |   поръчай визитки -1
+            #viz-2.nivo-html-caption
+              h1
+                i.ion-ios-cart
+                |   поръчай визитки -2
+          .padder15
+          h4 BUSINESS CARDS - MAKE A GREAT FIRST IMPRESSION
+          p
+            | Even in today's online networking society, making lasting first impressions in person can go a long way toward acquiring new business partners. Presenting high-quality business cards can make all the difference. At Onlineprinters, we offer a wide range of paper types, weight and finishes to make sure your business card stands out and reaches the top of the pile!
+          p
+            | Unleash your creativity and present the image you and your business deserve. From folded to plastic business cards, we have different solutions to help you gain an edge over the competition. Our UV-coated cards will help your contacts tell the difference between your business cards and others.
+            br
+            br
+            |  Alternatively, with corner-rounding you can personalise your cards the way you originally envisioned them.
+            |       We offer a wider range of paper stocks and you can choose the paper weight which most suits your needs: from the standard but reliable 350gsm art-print paper to our sturdy and durable 450gsm matt cards.
+          img(src='../public/Design_HTML/products/viz-img.jpg', alt='')
+        .one-third.end.sidebar
+          .price-box
+            .price-box-lead
+              span(style='color: #f39700') ФЛАЕРИ
+              br
+              |            САМО ДО КРАЯ НА МЕСЕЦА:
+            .price-box-price
+              | 1000 бр. / 100 лв.
+            a.ghost-button(href='#', title='Поръчай') Поръчай!
+          h5(align='center') Три топ причини, за да възложите печатните си материали на нас:
+          ul.boxed-benefits
+            li
+              strong Отлично качество
+              |  - Разполагаме с най-новите машини за дигитален и офсетов печат и довършителни операции.
+            li
+              strong Кратки срокове
+              |  - Оптимизираният ни процес на работа ни позволява да изпълним всякакви тиражи в кратки срокове.
+            li
+              strong Защото сме експерти
+              |  - В нашите отдели работят експерти във всеки един етап от дизайнерския, предпечатния и печатния процес.
+          .mailing-list-box
+            .mailing-list-box-lead
+              | Региктрирайте се за нашия бюлетин и останете информирани чрез нашите новини и съвети.
+            input.mailing-list-email(type='text')
+            input.mailing-list-submit(type='submit', value='E-mail')

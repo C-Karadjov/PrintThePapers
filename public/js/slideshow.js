@@ -3,6 +3,9 @@
 let myIndex = 0;
 let lastIndex = 0;
 const slideElements = $('.my-slides');
+slideElements
+    .toArray()
+    .map((xx) => (xx.style.display = 'none'));
 carousel();
 
 

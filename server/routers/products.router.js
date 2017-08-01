@@ -5,9 +5,10 @@ const attachTo = (app, data) => {
     const controllers = require('../controllers/products.controller')(data);
 
     router
-        .get('/products', controllers.getAllProducts);
+        .get('/vizitki', controllers.getAllProducts)
+        .get('/vizitki/sub1', controllers.getAllProducts);
 
-    app.use('/', router);
+    app.use('/products', router);
 };
 
 module.exports = { attachTo };

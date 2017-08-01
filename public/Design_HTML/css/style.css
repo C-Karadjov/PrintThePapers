@@ -71,7 +71,7 @@ section:after {
     display: none;
   }
 }
-#pre-header .container {
+#pre-header .containerHTML {
   height: 2.25em;
 }
 
@@ -159,25 +159,25 @@ header #responsive-menu-button:hover {
   opacity: .8;
   cursor: pointer;
 }
-.container {
+.containerHTML {
   margin: 0 auto;
   zoom: 1;
 }
-.container:before,
-.container:after {
+.containerHTML:before,
+.containerHTML:after {
   content: "";
   display: table;
 }
-.container:after {
+.containerHTML:after {
   clear: both;
 }
 @media only screen and (min-width: 1025px) {
-  .container {
+  .containerHTML {
     width: 1024px;
   }
 }
 @media only screen and (max-width: 1024px) {
-  .container {
+  .containerHTML {
     padding: 0 20px;
   }
 }
