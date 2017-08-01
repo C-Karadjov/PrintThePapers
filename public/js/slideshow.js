@@ -1,18 +1,15 @@
 /* globals $ */
 
 let myIndex = 0;
+let lastIndex = 0;
+const slideElements = $('.my-slides');
 carousel();
 
+
 function carousel() {
-    let i;
-    const x = $('.my-slides');
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = 'none';
-    }
-    myIndex++;
-    if (myIndex > x.length) {
-        myIndex = 1;
-    }
-    x[myIndex - 1].style.display = 'block';
-    setTimeout(carousel, 3000);
+    slideElements[lastIndex].style.display = 'none';
+    lastIndex = myIndex;
+    slideElements[myIndex++].style.display = 'block';
+    myIndex %= slideElements.length;
+    setTimeout(carousel, 2000);
 }
